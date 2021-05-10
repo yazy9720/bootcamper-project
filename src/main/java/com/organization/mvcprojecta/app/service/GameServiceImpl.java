@@ -1,4 +1,4 @@
-package com.organization.mvcproject.service;
+package com.organization.mvcprojecta.app.service;
 
 import java.util.List;
 

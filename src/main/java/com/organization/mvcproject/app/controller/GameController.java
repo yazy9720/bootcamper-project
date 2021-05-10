@@ -1,4 +1,4 @@
-package com.organization.mvcproject.controller;
+package com.organization.mvcproject.app.controller;
 
 import java.lang.invoke.MethodHandles;
 
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.organization.mvcproject.api.model.Game;
 import com.organization.mvcproject.api.service.GameService;
-import com.organization.mvcproject.model.GameImpl;
+import com.organization.mvcproject.app.model.GameImpl;
 
 
 @RestController

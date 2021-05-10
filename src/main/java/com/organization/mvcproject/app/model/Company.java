@@ -1,4 +1,4 @@
-package com.organization.mvcproject.model;
+package com.organization.mvcproject.app.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.organization.mvcproject.model;
+package com.organization.mvcproject.app.model;
 
 import com.organization.mvcproject.api.model.Review;
 

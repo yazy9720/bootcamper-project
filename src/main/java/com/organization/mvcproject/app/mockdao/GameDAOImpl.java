@@ -1,4 +1,4 @@
-package com.organization.mvcproject.mockdao;
+package com.organization.mvcproject.app.mockdao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.google.common.collect.ImmutableList;
 import com.organization.mvcproject.api.mockdao.GameDAO;
 import com.organization.mvcproject.api.model.Game;
-import com.organization.mvcproject.model.GameImpl;
+import com.organization.mvcproject.app.model.GameImpl;
 
 @Repository
 public class GameDAOImpl implements GameDAO  {
