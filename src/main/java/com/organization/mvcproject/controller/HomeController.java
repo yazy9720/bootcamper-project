@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.organization.mvcproject.model.Game;
-import com.organization.mvcproject.model.Review;
+import com.organization.mvcproject.model.GameImpl;
+import com.organization.mvcproject.model.ReviewImpl;
 
 @Controller
 public class HomeController {
@@ -19,20 +19,20 @@ public class HomeController {
 
 	@RequestMapping(value = "/review", method = RequestMethod.GET)
 	public ModelAndView review() {
-		return new ModelAndView("review", "command", new Review());
+		return new ModelAndView("review", "command", new ReviewImpl());
 	}
 
 	@RequestMapping(value = "/addReview", method = RequestMethod.POST)
-	public ModelAndView addReview(Review review, ModelMap model) {
-		if(review.getAuthor().equals("")) {
-			review.setAuthor("anonymous");
+	public ModelAndView addReview(ReviewImpl reviewImpl, ModelMap model) {
+		if(reviewImpl.getAuthor().equals("")) {
+			reviewImpl.setAuthor("anonymous");
 		}
-		return new ModelAndView("result", "submittedReview", review);
+		return new ModelAndView("result", "submittedReview", reviewImpl);
 	}
 
 	@RequestMapping(value = "/games", method = RequestMethod.GET)
 	public ModelAndView game() {
-		return new ModelAndView("games", "command", new Game());
+		return new ModelAndView("games", "command", new GameImpl());
 	}
    
 	@RequestMapping(value="/hello")

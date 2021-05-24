@@ -5,34 +5,35 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.organization.mvcproject.dao.GameStreamBasedDAO;
-import com.organization.mvcproject.model.Game;
+import com.organization.mvcproject.api.dao.GameDao;
+import com.organization.mvcproject.api.model.Game;
+import com.organization.mvcproject.api.service.GameService;
 
 
 @Service
 public class GameServiceImpl implements GameService {
 
 	@Autowired
-	private GameStreamBasedDAO gameDAO; 
+	private GameDao gameStreamBasedDAO; 
 
 	
 	public List<Game> retrieveAllGames() {
-		return gameDAO.findAllGames();
+		return gameStreamBasedDAO.findAllGames();
 	}
 
 	
 	public Game saveGame(Game game) {
-		return gameDAO.saveGame(game);
+		return gameStreamBasedDAO.saveGame(game);
 	}
 	
 	
 	public Game findGameById(Long id) {
-		return gameDAO.findGameById(id);
+		return gameStreamBasedDAO.findGameById(id);
 	}
 
 	
 	public boolean deleteGame(Long id) {
-		return gameDAO.deleteGame(id); 
+		return gameStreamBasedDAO.deleteGame(id); 
 	}
 }
 	
