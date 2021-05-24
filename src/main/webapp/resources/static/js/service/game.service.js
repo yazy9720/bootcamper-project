@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('MGL_Task1_app').factory('MGL_Task1_Service', ['$http', function($http) {
+angular.module('GameApp').service('GameService', ['$http', function($http) {
 
-		var REST_SERVICE_URI = 'http://localhost:8080/MGL_Task1/';
+		var REST_SERVICE_URI = 'game/';
 
 		var factory = {
 			fetchAllGames : fetchAllGames,
@@ -19,7 +19,7 @@ angular.module('MGL_Task1_app').factory('MGL_Task1_Service', ['$http', function(
 		}
 
 		function createGame(game) {
-			return $http.post(REST_SERVICE_URI + 'createGame', game).then(function(response) {
+			return $http.post(REST_SERVICE_URI, game).then(function(response) {
 					return response.data;
 				}
 			);

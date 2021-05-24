@@ -1,7 +1,8 @@
-package com.organization.mvcproject.MGL_Task1.model;
+package com.organization.mvcproject.model;
 
 public class Review {
-	private String reviewBody;
+	
+	private String body;
 	private String author;
 	private Integer rating;
 
@@ -21,11 +22,12 @@ public class Review {
 		this.rating = rating;
 	}
 
-	public String getReviewBody() {
-		return reviewBody;
+	public String getBody() {
+		return body;
 	}
 
-	public void setReviewBody(String reviewBody) {
-		this.reviewBody = reviewBody;
+	public void setBody(String body) {
+		this.body = body;
 	}
+
 }
