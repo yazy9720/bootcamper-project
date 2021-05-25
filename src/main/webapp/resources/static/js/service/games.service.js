@@ -2,7 +2,7 @@
 
 angular.module('GameLibraryApp').factory('GameLibraryService', ['$http', function($http) {
 
-		var REST_SERVICE_URI = 'http://localhost:8080/game/';
+		var REST_SERVICE_URI = 'game/';
 
 		var factory = {
 			fetchAllGames : fetchAllGames,
