@@ -74,9 +74,20 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default">
+                        
+            <div class="panel panel-default mt-3">
                 <!-- Default panel contents -->
-                <div class="panel-heading text-light"><span class="lead">List of all current games</span></div>
+                <div class="panel-heading text-light">
+                	<span class="lead">List of all current games</span>
+                	<span data-ng-if="ctrl.genres.length > 1"><span class="lead"> | </span>
+                	<label style="color: white" class="lead" for="select_genre_filter">Filter by Genre</label>
+                	 <select id="select_genre_filter"
+                	 		 data-ng-options="genre.name as genre.name for genre in ctrl.genres" 
+                	 		 data-ng-model="ctrl.selectedGenre" 
+                	 		 data-ng-change="ctrl.fetchAllGames()">
+                	 </select>
+                	</span>
+                	 
                 <div class="tablecontainer">
                     <table class="table table-dark table-striped text-light">
                         <thead>
@@ -93,7 +104,7 @@
                                 <td><span ng-bind="currentGame.name"></span></td>
                                 <td><span ng-bind="currentGame.genre"></span></td>
                                 <td></td>
-                                <td><button data-ng-click="ctrl.game = currentGame" class="btn btn-secondary btn-sm">Select</button></td>
+                                <td><button data-ng-click="ctrl.updateGame(currentGame)" class="btn btn-secondary btn-sm">Select</button></td>
                                 <td><button data-ng-click="ctrl.deleteGame(currentGame)" class="btn btn-secondary btn-sm">Delete</button></td>
                             </tr>
                         </tbody>

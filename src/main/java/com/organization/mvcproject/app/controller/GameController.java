@@ -33,12 +33,16 @@ public class GameController {
 	private GameService gameService;
 	
 	@GetMapping(value = "/")
-	public ResponseEntity<?> fetchAllGames() {
+	public ResponseEntity<?> fetchAllGames(@RequestParam(required = false) String genre) {
+		if(genre != null) {
+			return new ResponseEntity<>(gameService.retrieveGamesByGenre(genre), HttpStatus.OK);
+		}
+		
 		return new ResponseEntity<>(gameService.retrieveAllGames(), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<?> fetchGameById(@RequestParam String id){
+	public ResponseEntity<?> fetchGameById(@PathVariable String id){
 		Game game = gameService.findGameById(Long.valueOf(id));
 		if(game.getId() == null) {
 			logger.info("Game with id: {}, not found", id);
@@ -61,6 +65,7 @@ public class GameController {
 	public ResponseEntity<?> deleteGame(@PathVariable String id){
 		return new ResponseEntity<>(gameService.deleteGame(Long.valueOf(id)), HttpStatus.OK);
 	}
+	
 
 	
 }

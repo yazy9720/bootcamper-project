@@ -14,4 +14,6 @@ public interface GameService {
 	
 	boolean deleteGame(Long id);
 
+	List<Game> retrieveGamesByGenre(String genre);
+
 }

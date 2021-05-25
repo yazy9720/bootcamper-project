@@ -35,6 +35,11 @@ public class GameServiceImpl implements GameService {
 		return gameDAO.deleteGame(id); 
 	}
 
+	@Override
+	public List<Game> retrieveGamesByGenre(String genre) {
+		return gameDAO.findGamesByGenre(genre);
+	}
+
 	
 
 }
