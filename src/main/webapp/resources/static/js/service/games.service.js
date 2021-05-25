@@ -1,12 +1,13 @@
 'use strict';
 
-angular.module('GameLibraryApp').factory('GameLibraryService', ['$http', function($http) {
+angular.module('GameLibraryApp').factory('GameLibraryService', ['$http', '$log', function($http, $log) {
 
-		var REST_SERVICE_URI = 'http://localhost:8080/game/';
+		var REST_SERVICE_URI = 'game/';
 
 		var factory = {
 			fetchAllGames : fetchAllGames,
-			createGame : createGame
+			createGame : createGame,
+			deleteGame : deleteGame,
 		};
 
 		return factory;
@@ -20,6 +21,14 @@ angular.module('GameLibraryApp').factory('GameLibraryService', ['$http', functio
 
 		function createGame(game) {
 			return $http.post(REST_SERVICE_URI, game).then(function(response) {
+					return response.data;
+				}
+			);
+		}
+		
+		function deleteGame(gameId) {
+			return $http.delete(REST_SERVICE_URI + gameId).then(function(response) {
+				    (response.data) ? $log.debug('Game{}, Deleted', gameId): $log.debug('Game{} delete failed', gameId);
 					return response.data;
 				}
 			);

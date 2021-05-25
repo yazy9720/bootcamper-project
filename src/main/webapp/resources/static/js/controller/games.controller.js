@@ -21,6 +21,12 @@ angular.module('GameLibraryApp').controller('GameLibraryController',
 				self.fetchAllGames();
 				});
 			}
+			
+			self.deleteGame = function(game){
+				return GameLibraryService.deleteGame(game.id).then( function() {
+				self.fetchAllGames();
+				});
+			}
 
 			self.fetchAllGames();
 		} ]);
