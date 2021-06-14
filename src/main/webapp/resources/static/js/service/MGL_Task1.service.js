@@ -2,7 +2,7 @@
 
 angular.module('MGL_Task1_app').factory('MGL_Task1_Service', ['$http', function($http) {
 
-		var REST_SERVICE_URI = 'http://localhost:8080/MGL_Task1/';
+		
 
 		var factory = {
 			fetchAllGames : fetchAllGames,
@@ -12,14 +12,14 @@ angular.module('MGL_Task1_app').factory('MGL_Task1_Service', ['$http', function(
 		return factory;
 
 		function fetchAllGames() {
-			return $http.get(REST_SERVICE_URI + 'getAll').then(function(response) {
+			return $http.get('getAll').then(function(response) {
 					return response.data;
 				}
 			);
 		}
 
 		function createGame(game) {
-			return $http.post(REST_SERVICE_URI + 'createGame', game).then(function(response) {
+			return $http.post( 'createGame', game).then(function(response) {
 					return response.data;
 				}
 			);
