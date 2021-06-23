@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.organization.mvcproject.MGL_Task1.model.Game;
+import com.organization.mvcproject.api.service.GameService;
 import com.organization.mvcproject.dao.MockDAO;
 
 @Service("javaGameService")
-public class Game_Service_Impl implements Game_Service 
+public class GameServiceImpl implements GameService 
 {
 	@Autowired
 	private MockDAO mockDao;

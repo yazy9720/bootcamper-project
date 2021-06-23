@@ -1,9 +1,10 @@
 package com.organization.mvcproject.MGL_Task1.model;
 
 import org.springframework.stereotype.Component;
+import com.organization.mvcproject.api.model.Games;
 
 @Component
-public class Game {
+public class Game implements Games {
 
 	private Long id;
 	private String name;

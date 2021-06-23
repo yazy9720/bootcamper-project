@@ -1,13 +1,19 @@
 package com.organization.mvcproject.dao;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
 import com.organization.mvcproject.MGL_Task1.model.Game;
+import com.organization.mvcproject.api.dao.GameDao;
 @Repository
-public class MockDAO {
+/*interface DAOInterface
+{
+	
+}*/
+public class MockDAO implements GameDao  {
 	private static Long gameId = new Long(0);
 	
 	private static List<Game> games = new ArrayList<Game>();
@@ -15,7 +21,7 @@ public class MockDAO {
 	static {
 		games = populateGames();
 	}
-
+//@Override
 	private static List<Game> populateGames() {
 
 		Game game1 = new Game();
@@ -96,6 +102,12 @@ public class MockDAO {
 		   }
 	return false;
 	}
-}
 
+
+	/*public List<Game> findGamesByGenere(String Genre) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
+}
+ 
 
