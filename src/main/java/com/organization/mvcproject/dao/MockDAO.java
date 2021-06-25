@@ -56,16 +56,16 @@ public class MockDAO implements GameDao  {
 	// update &create
 	public  Game saveGame(Game game) {
 
-		if(game.getId() != null) {
-		Game gameIsFound = gameWillBeFoundById(game.getId());
-			if(gameIsFound != null)
+		if(game.getGamesId() != null) {
+		Game gameWasJustFound = gameWillBeFoundById(game.getGamesId());
+			if(gameWasJustFound != null)
 			{
 			   for(int y = 0; y < games.size(); y++)
 			   {
-				   if (gameIsFound.getId() == (games.get(y).getId()))
+				   if (gameWasJustFound.getGamesId().equals(games.get(y).getGamesId()))
 				   {
-					   games.set(y, gameIsFound);
-					   return gameIsFound;
+					   games.set(y, gameWasJustFound);
+					   return gameWasJustFound;
 				   }
 			   }
 			}
@@ -78,7 +78,7 @@ public class MockDAO implements GameDao  {
 	public Game gameWillBeFoundById(Long id) {
 		for(Game game: games) 
 		{
-		if (game.getId().equals(id))
+		if (game.getGamesId().equals(id))
 		{
 			return game;
 		}
@@ -94,7 +94,7 @@ public class MockDAO implements GameDao  {
 	
 		for(int p = 0; p < games.size(); p++)
 		   {
-			   if (id.equals(games.get(p).getId()))
+			   if (id.equals(games.get(p).getGamesId()))
 			   {
 				   games.remove(games.get(p));
 				   return true;

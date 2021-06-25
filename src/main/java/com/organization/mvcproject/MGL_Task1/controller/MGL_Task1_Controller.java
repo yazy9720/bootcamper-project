@@ -46,6 +46,7 @@ public class MGL_Task1_Controller {
 	public ModelAndView game() {
 		return new ModelAndView("games", "command", new Game());
 	}
+	
 
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
 	public ResponseEntity<List<Game>> fetchAllGames() {
@@ -57,4 +58,5 @@ public class MGL_Task1_Controller {
 		javaGameService.saveGame(game);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
+	
 }

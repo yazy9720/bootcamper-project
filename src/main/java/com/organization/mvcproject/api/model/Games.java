@@ -2,7 +2,7 @@ package com.organization.mvcproject.api.model;
 
 public interface Games
 {
-	public Long getId();
+	public Long getGamesId();
 		
 
 	public void setId(Long id);
