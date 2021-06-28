@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-
+                       
                         <div class="row">
                             <div class="form-actions floatRight">
                                 <input type="submit" value="Add" class="btn btn-primary btn-sm">
@@ -88,7 +88,10 @@
                             <tr ng-repeat="currentGame in MGL_T1_ctrl.games">
                                 <td><span ng-bind="currentGame.name"></span></td>
                                 <td><span ng-bind="currentGame.genre"></span></td>
-                                <td>
+                                <td class = "justify-content-center">
+                                <button class="btn btn-info" id={{currentGame}} onClick= "showingGame(this.id)"> Update</button>
+                                
+                        		<button class="btn btn-danger ml-3" ng-click= MGL_T1_ctrl.deleteAGame(currentGame)>Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -98,6 +101,15 @@
         </div>
 
     </body>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+    const showingGame = name =>
+    {
+    	const updatedGame = JSON.stringify(name);
+    	console.log(updatedGame);
+    }
+  
+    
+    
+    </script>
 
     </html>
