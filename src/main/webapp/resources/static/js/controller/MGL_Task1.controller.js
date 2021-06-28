@@ -4,7 +4,7 @@ angular.module('MGL_Task1_app').controller('MGL_Task1_Controller',
 		[ 'MGL_Task1_Service', function(MGL_Task1_Service) {
 			var self = this;
 			self.game = {
-				game_id : '',
+				gameId : '',
 				game_name : '',
 				game_genre : ''
 			};
@@ -21,6 +21,20 @@ angular.module('MGL_Task1_app').controller('MGL_Task1_Controller',
 				self.fetchAllGames();
 				});
 			}
-
-			self.fetchAllGames();
-		} ]);
+			self.updateGame = function(){
+				return MGL_Task1_Service.updateGame(self.game).then( function() {
+				self.fetchAllGames();
+				});
+			}
+			self.deleteAGame = function(game){
+			console.log(game);
+			console.log(game.gameId);
+			
+				return MGL_Task1_Service.deleteAGame(game.gameId).then( function() {
+				self.fetchAllGames();
+				});
+			}
+		self.fetchAllGames();
+		
+		
+}]);

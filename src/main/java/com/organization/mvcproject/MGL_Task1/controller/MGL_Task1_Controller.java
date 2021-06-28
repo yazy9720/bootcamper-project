@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +23,7 @@ import com.organization.mvcproject.api.service.GameService;
 @Controller
 public class MGL_Task1_Controller {
 
+	//private static final int ResponseEntity = 0;
 	@Autowired
 	private GameService javaGameService;
 
@@ -58,5 +61,20 @@ public class MGL_Task1_Controller {
 		javaGameService.saveGame(game);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
+	@RequestMapping(value = "/updateGame", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void>updateGame(@RequestBody Game game) {
+		javaGameService.saveGame(game);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	@DeleteMapping(value = "/deleteAGame/{id}")
+	public ResponseEntity<?> deleteAGame(@PathVariable String id)
+	{
+		System.out.println(id);
+		javaGameService.gameWillBeDeleted(Long.valueOf(id));
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
 	
-}
+	
+	}
+	
