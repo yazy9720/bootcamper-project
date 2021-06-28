@@ -6,20 +6,21 @@ import com.organization.mvcproject.api.model.Games;
 @Component
 public class Game implements Games {
 
-	private Long gamingId;
+	private Long id;
 	private String name;
 	private String genre;
 
-	public Long getGamesId() {
-		return gamingId;
+	public Long getGameId() {
+		return id;
 	}
 
-	public void setId(Long gamingId) {
-		this.gamingId = gamingId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
 		return name;
+		
 	}
 
 	public void setName(String name) {

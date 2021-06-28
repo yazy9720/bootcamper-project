@@ -10,6 +10,8 @@ public interface GameService {
 	List<Game> retrieveAllGames();
 
 	Game saveGame(Game game);
+
+	boolean gameWillBeDeleted(Long id);
 	
 
 }

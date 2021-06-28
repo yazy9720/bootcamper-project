@@ -34,6 +34,7 @@ public class GameServiceImpl implements GameService
 	return mockDao.gameWillBeFoundById(id);
 
 }
+	@Override
 	public boolean gameWillBeDeleted(Long id)
 	{
 		return mockDao.gameIsDeleted(id);
