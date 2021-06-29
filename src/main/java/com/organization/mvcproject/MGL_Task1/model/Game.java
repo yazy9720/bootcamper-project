@@ -10,7 +10,7 @@ public class Game implements Games {
 	private String name;
 	private String genre;
 
-	public Long getGameId() {
+	public Long getId() {
 		return id;
 	}
 

@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.organization.mvcproject.MGL_Task1.model.Game;
+import com.organization.mvcproject.MGL_Task1.service.GameServiceImpl;
 import com.organization.mvcproject.api.dao.GameDao;
 @Repository
 /*interface DAOInterface
@@ -53,32 +54,33 @@ public class MockDAO implements GameDao  {
 	}
 
 	//@Override
-	// update &create
-	public  Game saveGame(Game game) {
-
-		if(game.getGameId() != null) {
-		Game gameWasJustFound = gameWillBeFoundById(game.getGameId());
-			if(gameWasJustFound != null)
+	// update & create
+	public Game  saveGame(Game game)
+	{
+		if(game.getId() != null)
+		{
+			
+			for( Game currentGame : games)
 			{
-			   for(int y = 0; y < games.size(); y++)
-			   {
-				   if (gameWasJustFound.getGameId().equals(games.get(y).getGameId()))
-				   {
-					   games.set(y, gameWasJustFound);
-					   return gameWasJustFound;
-				   }
-			   }
+				if(game.getId().equals(currentGame.getId()))
+				{
+					int theIndexIs = 0;
+					theIndexIs  = games.indexOf(currentGame);
+					games.set(theIndexIs, game);
+					return games.get(theIndexIs);
+				}
 			}
+			
 		}
-		  game.setId(++gameId);
-	        games.add(game);
-	        return game;
+		game.setId(++gameId);
+	    games.add(game);
+	    return game;
+	
 	}
-
 	public Game gameWillBeFoundById(Long id) {
 		for(Game game : games) 
 		{
-		if (game.getGameId().equals(id))
+		if (game.getId().equals(id))
 		{
 			return game;
 		}
@@ -94,7 +96,7 @@ public class MockDAO implements GameDao  {
 	
 		for(int p = 0; p < games.size(); p++)
 		   {
-			   if (id.equals(games.get(p).getGameId()))
+			   if (id.equals(games.get(p).getId()))
 			   {
 				   games.remove(games.get(p));
 				   return true;
@@ -103,11 +105,10 @@ public class MockDAO implements GameDao  {
 	return false;
 	}
 
+		
+		
+	}
 
-	/*public List<Game> findGamesByGenere(String Genre) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
-}
+
  
 

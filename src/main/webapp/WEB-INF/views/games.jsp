@@ -18,6 +18,11 @@
             		url('https://ak6.picdn.net/shutterstock/videos/1024598666/thumb/1.jpg');
             	background-repeat: no-repeat;
             	background-size: cover;
+            	
+            }
+            .marginLeft
+            {
+            	margin-left: 30px;
             }
         </style>
         <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-192x192.png">
@@ -66,7 +71,8 @@
                        
                         <div class="row">
                             <div class="form-actions floatRight">
-                                <input type="submit" value="Add" class="btn btn-primary btn-sm">
+                                <input ng-if="!MGL_T1_ctrl.game.id" type="submit" value="Add" class="btn btn-primary btn-sm">
+                                <button ng-if="MGL_T1_ctrl.game.id" data-ng-click= "MGL_T1_ctrl.addGame()" class ="btn btn-primary btn-sm"> Update</button>
                             </div>
                         </div>
                     </form>
@@ -88,10 +94,10 @@
                             <tr ng-repeat="currentGame in MGL_T1_ctrl.games">
                                 <td><span ng-bind="currentGame.name"></span></td>
                                 <td><span ng-bind="currentGame.genre"></span></td>
-                                <td class = "justify-content-center">
-                                <button class="btn btn-info" id={{currentGame}} onClick= "showingGame(this.id)"> Update</button>
                                 
-                        		<button class="btn btn-danger ml-3" ng-click= MGL_T1_ctrl.deleteAGame(currentGame)>Delete</button>
+                                <td width="30%"> 
+                                <button class="btn btn-info" id={{currentGame}} ng-click= "MGL_T1_ctrl.updateGame(currentGame)"> Update</button>
+                                <button class=" btn btn-info marginLeft"id={{currentGame}} ng-click= "MGL_T1_ctrl.deleteAGame(currentGame)">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -106,10 +112,8 @@
     {
     	const updatedGame = JSON.stringify(name);
     	console.log(updatedGame);
+    	
     }
-  
-    
-    
     </script>
 
     </html>

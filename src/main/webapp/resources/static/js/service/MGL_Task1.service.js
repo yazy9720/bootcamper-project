@@ -26,13 +26,7 @@ angular.module('MGL_Task1_app').factory('MGL_Task1_Service', ['$http', function(
 				
 			);
 		}
-			function updateGame(game) {
-			return $http.post( 'http://localhost:8080/updateGame/', game).then(function(response) {
-					return response.data;
-				}
-				
-			);
-		}
+		
 		function deleteAGame(gameId)
 		{
 			return $http.delete("http://localhost:8080/deleteAGame/" + gameId).then(function(response) {
