@@ -42,8 +42,9 @@ public class MGL_Task1_Controller {
 		if(review.getAuthor().equals("")) {
 			review.setAuthor("anonymous");
 		}
-		return new ModelAndView("result", "submittedReview", review);
+		return new ModelAndView("review", "submittedReview", review);
 	}
+	
 
 	@RequestMapping(value = "/games", method = RequestMethod.GET)
 	public ModelAndView game() {
@@ -55,7 +56,11 @@ public class MGL_Task1_Controller {
 	public ResponseEntity<List<Game>> fetchAllGames() {
 		return new ResponseEntity<List<Game>>(javaGameService.retrieveAllGames(), HttpStatus.OK);
 	}
-
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public ResponseEntity<List<Game>> fetchAllGamesByGenre(@RequestBody String genre) {
+		return new ResponseEntity<List<Game>>(javaGameService.findGameByGenre(genre), HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/createGame", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> createGame(@RequestBody Game game) {
 		

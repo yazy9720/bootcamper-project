@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.organization.mvcproject.MGL_Task1.model.Game;
-import com.organization.mvcproject.MGL_Task1.service.GameServiceImpl;
 import com.organization.mvcproject.api.dao.GameDao;
 @Repository
 /*interface DAOInterface
@@ -49,9 +48,11 @@ public class MockDAO implements GameDao  {
 
 	//@Override
 	//Read
-	public List<Game> retrieveAllGames() {
+	public List<Game> retrieveAllGames()
+	{
 		return games;
 	}
+
 
 	//@Override
 	// update & create
@@ -104,10 +105,31 @@ public class MockDAO implements GameDao  {
 		   }
 	return false;
 	}
-
+	public List<Game> findGameByGenre(String genre)
+	
+	{
+		List<Game> matchingGames = new ArrayList<Game>();
+		if(genre != null) 
+		{
+			for(int a = 0; a <= games.size(); a++ )
+			{
+			  if(games.get(a).getGenre().toLowerCase().matches(genre))
+			  {
+				  matchingGames.add(games.get(a));
+			  }
+			}
+		}
 		
-		
+		return matchingGames;
+	
 	}
+
+
+}
+	
+		
+		
+	
 
 
  

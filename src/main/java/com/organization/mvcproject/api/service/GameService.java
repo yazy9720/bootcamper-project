@@ -12,8 +12,9 @@ public interface GameService {
 	Game saveGame(Game game);
 
 	boolean gameWillBeDeleted(Long id);
-	
+	List<Game> findGameByGenre(String genre);
 
+	
 }
 
 

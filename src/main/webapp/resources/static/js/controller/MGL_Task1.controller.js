@@ -15,6 +15,12 @@ angular.module('MGL_Task1_app').controller('MGL_Task1_Controller',
 					self.games = data;
 				});
 			}
+			self.fetchAllGamesByGenre = function(){
+				MGL_Task1_Service.fetchAllGamesByGenre().then(function(data) {
+					self.games = data;
+				});
+			}
+			
 
 			self.addGame = function(){
 			

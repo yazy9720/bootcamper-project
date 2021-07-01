@@ -7,6 +7,9 @@
         <script src="resources/static/js/app.js" /></script>
         <script src="resources/static/js/service/MGL_Task1.service.js"></script>
         <script src="resources/static/js/controller/MGL_Task1.controller.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -80,20 +83,25 @@
             </div>
             <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading text-light"><span class="lead">List of all current games</span></div>
+          
                 <div class="tablecontainer">
-                    <table class="table table-dark table-striped text-light">
+                  <div class="panel-heading text-light"><span class="lead">Search for all current games</span></div>
+                <input class= "form-control" id="gameInput" type="text" placeholder="Searching for a game type here....">
+                    <table class="table table-dark table-striped text-light" id="gameTable">
+                     <div class="panel-heading text-light"><span class="lead">List of all current games</span></div>
                         <thead>
-                            <tr>
+                            <tr class="filters">
                                 <th>Game Name</th>
                                 <th>Game Genre</th>
                                 <th width="20%"></th>
                             </tr>
                         </thead>
                         <tbody>
+                        <div>
                             <tr ng-repeat="currentGame in MGL_T1_ctrl.games">
-                                <td><span ng-bind="currentGame.name"></span></td>
+                                <td><span ng-bind="currentGame.name"></span></td>|
                                 <td><span ng-bind="currentGame.genre"></span></td>
+                              </div> 
                                 
                                 <td width="30%"> 
                                 <button class="btn btn-info" id={{currentGame}} ng-click= "MGL_T1_ctrl.updateGame(currentGame)"> Update</button>
@@ -113,7 +121,20 @@
     	const updatedGame = JSON.stringify(name);
     	console.log(updatedGame);
     	
-    }
+    } 
     </script>
-
+    <script type="text/javascript">
+    $(document).ready(function(){
+    
+    	$("#gameInput").on("keyup", function(){
+    	
+    		const valuatingvaluatingVals = $(this).val().toLowerCase();
+    		$("#gameTable tr").filter(function(){
+    		
+    			$(this).toggle($(this).text().toLowerCase().indexOf(valuatingVals) > -1);
+    		});
+    	});
+    });
+   
+    </script>
     </html>

@@ -10,5 +10,7 @@ public interface GameDao
 	 Game saveGame(Game game);
 	 Game gameWillBeFoundById(Long id);
 	 boolean gameIsDeleted(Long id);
+	 List<Game> findGameByGenre(String genre);
+
 	
 }

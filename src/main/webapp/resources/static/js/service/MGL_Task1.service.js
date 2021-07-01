@@ -6,6 +6,7 @@ angular.module('MGL_Task1_app').factory('MGL_Task1_Service', ['$http', function(
 
 		var factory = {
 			fetchAllGames : fetchAllGames,
+			fetchAllGamesByGenre : fetchAllGamesByGenre,
 			createGame : createGame,
 			deleteAGame : deleteAGame
 		};
@@ -18,6 +19,13 @@ angular.module('MGL_Task1_app').factory('MGL_Task1_Service', ['$http', function(
 				}
 			);
 		}
+		function fetchAllGamesByGenre() {
+			return $http.get("http://localhost:8080/search/").then(function(response) {
+					return response.data;
+				}
+			);
+		}
+	
 
 		function createGame(game) {
 			return $http.post( 'createGame', game).then(function(response) {

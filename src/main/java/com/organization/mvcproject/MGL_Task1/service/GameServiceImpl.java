@@ -3,7 +3,6 @@ package com.organization.mvcproject.MGL_Task1.service;
 
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +37,15 @@ public class GameServiceImpl implements GameService
 	public boolean gameWillBeDeleted(Long id)
 	{
 		return mockDao.gameIsDeleted(id);
+		
 	
 }
+	
+
+	@Override
+	public List<Game> findGameByGenre(String genre) {
+		
+		return mockDao.findGameByGenre(genre);
+	}
+
 }
