@@ -74,8 +74,8 @@
                        
                         <div class="row">
                             <div class="form-actions floatRight">
-                                <input ng-if="!MGL_T1_ctrl.game.id" type="submit" value="Add" class="btn btn-primary btn-sm">
-                                <button ng-if="MGL_T1_ctrl.game.id" data-ng-click= "MGL_T1_ctrl.addGame()" class ="btn btn-primary btn-sm"> Update</button>
+                                <input ng-if="!MGL_T1_ctrl.game.id" type="submit" value="Add" class="btn btn-link">
+                                <button ng-if="MGL_T1_ctrl.game.id" data-ng-click= "MGL_T1_ctrl.addGame()" class = "btn btn-link"> Update</button>
                             </div>
                         </div>
                     </form>
@@ -87,7 +87,7 @@
                 <div class="tablecontainer">
                   <div class="panel-heading text-light"><span class="lead">Search for all current games</span></div>
                 <input class= "form-control" id="gameInput" type="text" placeholder="Searching for a game type here....">
-                    <table class="table table-dark table-striped text-light" id="gameTable">
+                    <table class="table table-light table-striped text-dark" id="gameTable">
                      <div class="panel-heading text-light"><span class="lead">List of all current games</span></div>
                         <thead>
                             <tr class="filters">
@@ -104,8 +104,8 @@
                               </div> 
                                 
                                 <td width="30%"> 
-                                <button class="btn btn-info" id={{currentGame}} ng-click= "MGL_T1_ctrl.updateGame(currentGame)"> Update</button>
-                                <button class=" btn btn-info marginLeft"id={{currentGame}} ng-click= "MGL_T1_ctrl.deleteAGame(currentGame)">Delete</button>
+                                <button class="btn btn-primary marginLeft" id={{currentGame}} ng-click= "MGL_T1_ctrl.updateGame(currentGame)"> Update</button>
+                                <button class=" btn btn-primary marginLeft"id={{currentGame}} ng-click= "MGL_T1_ctrl.deleteAGame(currentGame)">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -128,7 +128,7 @@
     
     	$("#gameInput").on("keyup", function(){
     	
-    		const valuatingvaluatingVals = $(this).val().toLowerCase();
+    		const valuatingVals = $(this).val().toLowerCase();
     		$("#gameTable tr").filter(function(){
     		
     			$(this).toggle($(this).text().toLowerCase().indexOf(valuatingVals) > -1);

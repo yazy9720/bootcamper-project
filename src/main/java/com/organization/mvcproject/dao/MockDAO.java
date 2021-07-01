@@ -1,7 +1,8 @@
 package com.organization.mvcproject.dao;
 
 import java.util.ArrayList;
-
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -50,6 +51,8 @@ public class MockDAO implements GameDao  {
 	//Read
 	public List<Game> retrieveAllGames()
 	{
+		Collections.sort(games, Comparator.comparing(Game::getGenre));
+
 		return games;
 	}
 
@@ -109,6 +112,9 @@ public class MockDAO implements GameDao  {
 	
 	{
 		List<Game> matchingGames = new ArrayList<Game>();
+		
+		
+		
 		if(genre != null) 
 		{
 			for(int a = 0; a <= games.size(); a++ )
@@ -118,9 +124,12 @@ public class MockDAO implements GameDao  {
 				  matchingGames.add(games.get(a));
 			  }
 			}
+			
 		}
 		
-		return matchingGames;
+		
+		Collections.sort(matchingGames, Comparator.comparing(Game::getGenre));
+		return matchingGames ;
 	
 	}
 

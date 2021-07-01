@@ -19,8 +19,16 @@ angular.module('MGL_Task1_app').factory('MGL_Task1_Service', ['$http', function(
 				}
 			);
 		}
-		function fetchAllGamesByGenre() {
-			return $http.get("http://localhost:8080/search/").then(function(response) {
+		function fetchAllGamesByGenre(genreString) {
+			return $http(
+			{
+				url:'search',
+				method:'GET',
+				params:{genre: genreString}
+			}
+			
+			
+			).then(function(response){
 					return response.data;
 				}
 			);
